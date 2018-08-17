@@ -46,7 +46,7 @@ def download_from_csv(source_csv):
         reader = csv.reader(f)
         next(reader)
         for row in reader:
-            if '-' not in row:
+            if '-' not in row and '' not in row:
                 download_song(row, dataset_name, remix=False)
                 download_song(row, dataset_name, remix=True)
             else:
