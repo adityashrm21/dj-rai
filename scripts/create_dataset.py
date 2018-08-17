@@ -13,6 +13,7 @@ SOURCES = os.path.join(PROJECT_ROOT, 'sources')
 YOUTUBE_OPTIONS = {
     'quiet': True,
     # 'simulate': True,
+    'download_archive': os.path.join(DATASETS, 'download_archive'),
     'forcefilename': True,
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -49,7 +50,7 @@ def download_from_csv(source_csv):
                 download_song(row, dataset_name, remix=False)
                 download_song(row, dataset_name, remix=True)
             else:
-                print.warn('Skipping row due to missing URL')
+                print('Skipping row due to missing URL')
 
 def get_yt_options(dataset, sample_name, remix=False):
     if remix:
